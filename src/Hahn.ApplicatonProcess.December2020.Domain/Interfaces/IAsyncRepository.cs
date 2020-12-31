@@ -1,10 +1,10 @@
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Hahn.ApplicatonProcess.December2020.Domain.Entities;
+
 namespace Hahn.ApplicatonProcess.December2020.Domain.Interfaces
 {
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Entities;
-
     public interface IAsyncRepository<T> where T : BaseEntity
     {
         Task<T> GetByIdAsync(int id, CancellationToken cancellationToken = default);

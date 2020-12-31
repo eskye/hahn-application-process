@@ -1,8 +1,8 @@
+using System.Threading.Tasks;
+using Hahn.ApplicatonProcess.December2020.Domain.Entities;
+
 namespace Hahn.ApplicatonProcess.December2020.Domain.Interfaces
 {
-    using System.Threading.Tasks;
-    using Entities;
-
     public interface IApplicantService
     {
         Task CreateApplicantAsync(Applicant applicant);
