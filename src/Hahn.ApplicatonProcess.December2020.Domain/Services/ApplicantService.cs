@@ -1,9 +1,10 @@
+using System;
+using System.Threading.Tasks;
+using Hahn.ApplicatonProcess.December2020.Domain.Entities;
+using Hahn.ApplicatonProcess.December2020.Domain.Interfaces;
+
 namespace Hahn.ApplicatonProcess.December2020.Domain.Services
 {
-    using System;
-    using System.Threading.Tasks;
-    using Entities;
-    using Interfaces;
 
     public class ApplicantService : IApplicantService
     {
