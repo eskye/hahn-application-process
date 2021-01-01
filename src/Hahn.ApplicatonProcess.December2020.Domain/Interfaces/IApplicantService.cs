@@ -5,7 +5,9 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.Interfaces
 {
     public interface IApplicantService
     {
-        Task CreateApplicantAsync(Applicant applicant);
+        Task<Applicant> CreateApplicantAsync(Applicant applicant);
         Task DeleteApplicantAsync(int applicantId);
+        Task<Applicant> GetApplicantById(int applicantId);
+        Task UpdateApplicantAsync(Applicant applicant);
     }
 }
