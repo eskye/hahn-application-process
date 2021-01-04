@@ -9,7 +9,7 @@ using Hahn.ApplicatonProcess.December2020.Web.ViewModels;
 
 
 namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
-{ 
+{
     public class ApplicantController : BaseApiController
     {
         private readonly ILogger<ApplicantController> _logger;

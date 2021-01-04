@@ -1,10 +1,10 @@
+using Hahn.ApplicatonProcess.December2020.Data;
+using Hahn.ApplicatonProcess.December2020.Domain.Interfaces;
+using Hahn.ApplicatonProcess.December2020.Domain.Services;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Hahn.ApplicatonProcess.December2020.Web.Configuration
 {
-    using Data;
-    using Domain.Interfaces;
-    using Domain.Services; 
-    using Microsoft.Extensions.DependencyInjection;
-
     public static class ConfigureCoreServices
     {
         public static IServiceCollection AddCoreServices(this IServiceCollection services)

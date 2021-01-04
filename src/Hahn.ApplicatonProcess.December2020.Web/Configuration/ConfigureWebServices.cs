@@ -1,12 +1,12 @@
+using System;
+using System.Net.Http;
+using Hahn.ApplicatonProcess.December2020.Web.Filters;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
+using Hahn.ApplicatonProcess.December2020.Web.Services;
+
 namespace Hahn.ApplicatonProcess.December2020.Web.Configuration
 {
-    using System;
-    using System.Net.Http;
-    using Filters;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.DependencyInjection;
-    using Services;
-
     public static class ConfigureWebServices
     {
         public static IServiceCollection AddWebServices(this IServiceCollection services)

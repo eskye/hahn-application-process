@@ -1,11 +1,11 @@
+using System;
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Logging;
+
 namespace Hahn.ApplicatonProcess.December2020.Web.Filters
 {
-    using System;
-    using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.Filters;
-    using Microsoft.Extensions.Logging;
-
     public class ApiExceptionFilter : ExceptionFilterAttribute
     {
         private readonly ILogger<ApiExceptionFilter> _logger;

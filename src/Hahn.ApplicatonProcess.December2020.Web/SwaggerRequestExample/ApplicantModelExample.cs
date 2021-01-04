@@ -1,12 +1,8 @@
+using Swashbuckle.AspNetCore.Filters;
+using Hahn.ApplicatonProcess.December2020.Web.ViewModels;
+
 namespace Hahn.ApplicatonProcess.December2020.Web.SwaggerRequestExample
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using Swashbuckle.AspNetCore.Filters;
-    using ViewModels;
-
     public class ApplicantModelExample : IExamplesProvider<ApplicantViewModel>
     {
         public ApplicantViewModel GetExamples() => new ApplicantViewModel
