@@ -1,9 +1,9 @@
+using Hahn.ApplicatonProcess.December2020.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
 namespace Hahn.ApplicatonProcess.December2020.Data.Config
 {
-    using Domain.Entities;
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
     public class ApplicantConfiguration : IEntityTypeConfiguration<Applicant>
     {
         public void Configure(EntityTypeBuilder<Applicant> builder)

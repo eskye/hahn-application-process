@@ -1,8 +1,8 @@
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
 namespace Hahn.ApplicatonProcess.December2020.Web.ViewModels
 {
-    using System.Collections.Generic;
-    using Newtonsoft.Json;
-
     public class RestCountryResponse
     {
         [JsonProperty("name")]

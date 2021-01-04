@@ -1,11 +1,11 @@
+using System.Threading;
+using System.Threading.Tasks;
+using FluentValidation;
+using Hahn.ApplicatonProcess.December2020.Web.Services;
+using Hahn.ApplicatonProcess.December2020.Web.ViewModels;
+
 namespace Hahn.ApplicatonProcess.December2020.Web.Validators
 {
-    using System.Threading;
-    using System.Threading.Tasks;
-    using FluentValidation;
-    using Services;
-    using ViewModels;
-
     public class CreateApplicantModelValidator : AbstractValidator<ApplicantViewModel>
     {
         private readonly IValidateCountryName _validateCountryName;
@@ -26,7 +26,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Validators
 
         private async Task<bool> CheckIfCountryIsValid(string countryName, CancellationToken token)
         {
-            return await this._validateCountryName.CheckIfCountryIsValid(countryName, token);
+            return await _validateCountryName.CheckIfCountryIsValid(countryName, token);
         }
     }
 }
