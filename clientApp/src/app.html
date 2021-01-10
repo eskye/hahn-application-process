@@ -1,5 +1,6 @@
 <template>
-  <require from="./styles.css"></require>
+  <require from="./styles.css"></require> 
+  
   <nav class="navbar navbar-light bg-light border-bottom fixed-top" role="navigation">
     <a class="navbar-brand" href="#">
       <i class="fa fa-user"></i>
@@ -60,7 +61,7 @@
           </div>
         </div>
         <div>
-          <button class="btn btn-success float-right" type="submit">Save</button>
+          <button class="btn btn-success float-right" type="submit" disabled.bind="!canSave">Save</button>
           <button class="btn btn-primary float-right" type="reset">Reset</button>
         </div>
       </form>

@@ -1,4 +1,4 @@
-import { inject } from 'aurelia-framework';
+import { autoinject, inject } from 'aurelia-framework';
 import { Applicant } from './models/applicant';
 import { Router } from 'aurelia-router';
 import {
@@ -9,9 +9,10 @@ import {
   validateTrigger, 
 } from 'aurelia-validation';
 import { BootstrapFormRenderer } from './bootstrap-form-renderer';
+import { ApiService } from './services/apiService';
 
 
-@inject(ValidationControllerFactory)
+@autoinject
 export class App {
   public applicant: Applicant = {
     address: '',
@@ -23,18 +24,23 @@ export class App {
     name: ''
   };
   private controller: ValidationController;
+  canSave: boolean;
 
- constructor(validationControllerFactory){
-   this.controller = validationControllerFactory.createForCurrentScope();
+ constructor(private validationControllerFactory : ValidationControllerFactory, private validator: Validator, private apiService: ApiService){
+   this.controller = this.validationControllerFactory.createForCurrentScope(validator);
    this.controller.addRenderer(new BootstrapFormRenderer())
-   this.controller.validateTrigger = validateTrigger.change;
+   this.controller.validateTrigger = validateTrigger.changeOrBlur;
+   this.controller.subscribe(event => this.validateWhole());
+   this.setupValidation();
  }
 
  submit(){
    console.log(this.applicant);
    this.controller.validate().then(result => {
      if(result.valid){
-       console.log('valid', result);
+       this.apiService.save(this.applicant).then(result => {
+            console.log(result);
+       }).catch(error => console.log(error));
      }
      else {
        console.log('error', result);
@@ -43,13 +49,22 @@ export class App {
    })
  }
 
+ private validateWhole() {
+  this.validator.validateObject(this.applicant)
+      .then(results => this.canSave = results.every(result => result.valid));
 }
 
-ValidationRules
-.ensure((a: Applicant) => a.name).required().minLength(5)
-.ensure((a: Applicant) => a.familyName).required().minLength(5)
-.ensure((a: Applicant) => a.emailAddress).required().email()
-.ensure((a: Applicant) => a.age).required().between(20, 60)
-.ensure((a: Applicant) => a.address).required().min(5)
-.ensure((a: Applicant) => a.countryOfOrigin).required().min(5)
-.on(Applicant)
+ public setupValidation(){
+  ValidationRules
+  .ensure((a: Applicant) => a.name).required().minLength(5)
+  .ensure((a: Applicant) => a.familyName).required().minLength(5)
+  .ensure((a: Applicant) => a.emailAddress).required().email()
+  .ensure((a: Applicant) => a.age).required().between(20, 60)
+  .ensure((a: Applicant) => a.address).required().minLength(5)
+  .ensure((a: Applicant) => a.countryOfOrigin).required().minLength(5)
+  .on(this.applicant)
+ }
+
+}
+
+

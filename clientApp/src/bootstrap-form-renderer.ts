@@ -16,14 +16,12 @@ export class BootstrapFormRenderer {
     }
   
     add(element: Element, result: ValidateResult) {
-        debugger;
       const formGroup = element.closest('.form-group');
       if (!formGroup) {
         return;
       }
   
       if (result.valid) {
-        debugger;
         if (!formGroup.classList.contains('has-error')) {
           formGroup.classList.add('has-success');
         }
