@@ -9,6 +9,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Configuration
 {
     public static class ConfigureWebServices
     {
+       
         public static IServiceCollection AddWebServices(this IServiceCollection services)
         {
             services.AddSingleton<ValidatorActionFilterAttribute>();
@@ -20,6 +21,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Configuration
             });
 
             services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
+
             services.AddScoped<IValidateCountryName, ValidateCountryName>();
 
             services.AddScoped(sp => new HttpClient() { BaseAddress = new Uri("https://restcountries.eu") });

@@ -10,15 +10,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
+using FluentValidation.AspNetCore;
 
 namespace Hahn.ApplicatonProcess.December2020.Web
 {
-    using System.IO;
-    using FluentValidation.AspNetCore;
-    using Microsoft.Extensions.PlatformAbstractions;
-
     public class Startup
     {
+        private  readonly string _appAllowedOrigins = "_appAllowedOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,6 +29,16 @@ namespace Hahn.ApplicatonProcess.December2020.Web
         {
             services.AddControllers()
                 .AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Startup>());
+
+            //CORS
+            services.AddCors(corsOption => {
+                corsOption.AddPolicy(_appAllowedOrigins,
+                    corsBuilder =>
+                    {
+                        corsBuilder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                    }
+                );
+            });
 
             services.AddCoreServices();
             services.AddWebServices();
@@ -117,6 +125,8 @@ namespace Hahn.ApplicatonProcess.December2020.Web
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(_appAllowedOrigins);
 
             app.UseRouting();
 
