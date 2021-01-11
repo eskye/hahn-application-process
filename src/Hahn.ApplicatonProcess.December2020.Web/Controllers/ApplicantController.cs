@@ -44,7 +44,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
         public async Task<IActionResult> DeleteApplicant(int id)
         {
             await _applicantService.DeleteApplicantAsync(id);
-            return Ok(new {Message = "Applicant Deleted Successfully"});
+            return Ok("Applicant Deleted Successfully");
         }
 
         /// <param name="id" example="1">The applicant id</param>
@@ -54,7 +54,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
             var applicant = await _applicantService.GetApplicantById(id); 
             applicant.UpdateDetails(model.Name, model.FamilyName, model.Address, model.EmailAddress, model.CountryOfOrigin, model.Age, model.Hired);
             await _applicantService.UpdateApplicantAsync(applicant);
-            return Ok(new { Message = "Applicant Record Updated Successfully" });
+            return Ok( "Applicant Record Updated Successfully");
         }
 
 

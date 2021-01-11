@@ -6,67 +6,13 @@
       <i class="fa fa-user"></i>
       <span>Hahn Application Process</span>
     </a>
-  </nav>
-
-  <div class="container"> 
-  <div class="card">
-    <div class="card-header text-white bg-primary">
-    Applicant Form
-    </div>
-    <div class="card-body">
-      <form role="form" submit.delegate="submit()" novalidate autocomplete="off">
-        <div class="form-group row">
-          <label class="col-md-3 col-form-label">Name</label>
-          <div class="col-md-9">
-            <input type="text" placeholder="Enter Your  Name" class="form-control" value.bind="applicant.name & validate" required>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-md-3 col-form-label">Family Name</label>
-          <div class="col-md-9">
-            <input type="text" placeholder="Enter Your Family Name" class="form-control" value.bind="applicant.familyName & validate">
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-md-3 col-form-label">Email Address</label>
-          <div class="col-md-9">
-            <input type="text" placeholder="Enter Your Email Address" class="form-control" value.bind="applicant.emailAddress & validate">
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-md-3 col-form-label">Address</label>
-          <div class="col-md-9">
-            <input type="text" placeholder="Enter Your Address" class="form-control" value.bind="applicant.address & validate">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-md-3 col-form-label">Country Of Origin</label>
-          <div class="col-md-9">
-            <input type="text" placeholder="Enter Your Country Of Origin" class="form-control" value.bind="applicant.countryOfOrigin & validate">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-md-3 col-form-label">Age</label>
-          <div class="col-md-9">
-            <input type="number" placeholder="Enter Your Age" class="form-control" value.bind="applicant.age & validate">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-md-3 col-form-label">Hired</label>
-          <div class="col-md-4">
-            <input type="checkbox" value.bind="applicant.hired">
-          </div>
-        </div>
-        <div>
-          <button class="btn btn-success float-right" type="submit" disabled.bind="!canSave">Save</button>
-          <button class="btn btn-primary float-right" type="reset">Reset</button>
-        </div>
-      </form>
+    <ul>
      
-    </div>
-  </div>
-</div>
+      <select change.delegate="setLocale(currentLocale)" value.bind="currentLocale">
+        <option repeat.for="locale of locales" model.bind="locale.code"> ${locale.title}</option>
+      </select>
+    </ul>
+  </nav>
+  <router-view></router-view>
+  
 </template>
