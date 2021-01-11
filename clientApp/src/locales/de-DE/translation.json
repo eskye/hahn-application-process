@@ -1,0 +1,20 @@
+{
+    "applicant": "Antragsteller bilden",
+    "name": "Name",
+    "family_name": "Nachname",
+    "address" : "Adresse",
+    "email_address":"E-Mail-Addresse",
+    "country_of_origin": "Herkunftsland",
+    "age": "Alter",
+    "hired": "Gemietet",
+    "reset" : "Zurücksetzen",
+    "send": "Senden",
+    "sending": "Sendening",
+    "success":"Erfolg",
+    "enter_your_age":"Gebe Dein Alter ein",
+    "enter_your_email_address":"Geben sie ihre E-Mailadresse ein",
+    "enter_your_address":"Geben Sie Ihre Adresse ein",
+    "enter_your_name":"Gib deinen Namen ein",
+    "enter_your_family_name":"Geben Sie Ihren Familiennamen ein",
+    "enter_your_country_of_origin":"Geben Sie Ihr Herkunftsland ein"
+}

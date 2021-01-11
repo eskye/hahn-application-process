@@ -1,0 +1,70 @@
+<template>
+    <div class="container"> 
+        <div class="card" style="width: 100%;">
+          <div class="card-header text-white bg-primary" t="applicant">
+          Applicant Form
+          </div>
+          <div class="card-body">
+            <form role="form" submit.delegate="submit()" novalidate autocomplete="off">
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" t="name">Name</label>
+                <div class="col-md-9">
+                  <input type="text" t="[placeholder]enter_your_name" class="form-control" value.bind="applicant.name & validate" required>
+                </div>
+              </div>
+      
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" t="family_name">Family Name</label>
+                <div class="col-md-9">
+                  <input type="text" t="[placeholder]enter_your_family_name" class="form-control" value.bind="applicant.familyName & validate">
+                </div>
+              </div>
+      
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" t="email_address">Email Address</label>
+                <div class="col-md-9">
+                  <input type="text" t="[placeholder]enter_your_email_address" class="form-control" value.bind="applicant.emailAddress & validate">
+                </div>
+              </div>
+      
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" t="address">Address</label>
+                <div class="col-md-9">
+                  <input type="text" t="[placeholder]enter_your_address" class="form-control" value.bind="applicant.address & validate">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" t="country_of_origin">Country Of Origin</label>
+                <div class="col-md-9">
+                  <input type="text" t="[placeholder]enter_your_country_of_origin" class="form-control" value.bind="applicant.countryOfOrigin & validate">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" t="age">Age</label>
+                <div class="col-md-9">
+                  <input type="number" t="[placeholder]enter_your_age" class="form-control" value.bind="applicant.age & validate">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" t="hired">Hired</label>
+                <div class="col-md-4">
+                  <input type="checkbox" checked.bind="applicant.hired">
+                </div>
+              </div>
+              <div>
+                <button class="btn btn-primary float-right" disabled.bind="!canReset"  click.delegate="openResetDialog()" t="reset">Reset</button>
+              
+                 <span if.bind="isLoading">
+                  <i class="fa fa-spinner fa-spin fa-2x"></i>
+                 </span>
+      
+                <button class="btn btn-success float-right mr-2" t="send" type="submit"  disabled.bind="!canSave || isLoading"> Send </button>
+      
+              </div>
+            </form>
+           
+          </div>
+        </div>
+      </div>
+
+</template>

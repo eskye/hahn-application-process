@@ -1,0 +1,19 @@
+{
+    "applicant": "Applicant Form",
+    "name": "Name",
+    "family_name": "Family Name",
+    "address" : "Address",
+    "email_address":"Email Address",
+    "country_of_origin": "Country Of Origin",
+    "age": "Age",
+    "hired": "Hired",
+    "reset" : "Reset",
+    "send": "Send",
+    "success":"Success",
+    "enter_your_age":"Enter Your Age",
+    "enter_your_email_address":"Enter Your Email Address",
+    "enter_your_address":"Enter Your Address",
+    "enter_your_name":"Enter Your Name",
+    "enter_your_family_name":"Enter Your Family Name",
+    "enter_your_country_of_origin":"Enter Your Country Of Origin"
+}

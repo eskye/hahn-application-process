@@ -6,7 +6,8 @@ export class Applicant{
   address: string;
   countryOfOrigin: string;
   hired: boolean;
-  constructor(applicantObject){
+  constructor(applicantObject?){
+    if(applicantObject == null) return;
       Object.assign(this, applicantObject);
   }
 }

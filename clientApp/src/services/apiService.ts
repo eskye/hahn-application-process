@@ -1,13 +1,13 @@
 import { inject } from "aurelia-framework";
 import { HttpClient, json } from 'aurelia-fetch-client';
-import { Applicant } from '../models/applicant';
-import { method } from "lodash";
+import { Applicant } from '../models/applicant'; 
+import * as environment from '../../config/environment.json';
 
 @inject(HttpClient)
 export class ApiService { 
   constructor(private http : HttpClient){
       http.configure(config => {
-        config.withBaseUrl('http://localhost:5000')
+        config.withBaseUrl(environment.apiUrl)
       });
    }
 
@@ -15,8 +15,22 @@ export class ApiService {
     return this.http.fetch('/Applicant', {
         method: 'post',
         body: json(applicant)
-    }) .then(response => response.json())
-    .catch(error => console.log(error));
+    });
 }
 
+
+getApiErrorMessage(response: Response){
+  let result = ''
+  debugger;
+   switch (response.status) {
+     case 400:
+       result = response.statusText;
+       break;
+      case 500:
+        result = 'Internal server error';
+     default:
+       break;
+   }
+   return result;
+}
 }
